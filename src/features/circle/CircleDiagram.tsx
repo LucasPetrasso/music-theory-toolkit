@@ -65,7 +65,7 @@ export function CircleDiagram({ keys, selectedIndex, label, centerLabel, onSelec
                 ref={(node) => {
                   buttons.current[index] = node
                 }}
-                className={selected ? 'is-selected' : undefined}
+                className={`${selected ? 'is-selected' : ''}${key.alternate ? ' is-enharmonic' : ''}`}
                 aria-pressed={selected}
                 aria-label={
                   key.alternate
@@ -76,7 +76,7 @@ export function CircleDiagram({ keys, selectedIndex, label, centerLabel, onSelec
                 onClick={() => onSelect(index)}
                 onKeyDown={(event) => onKeyDown(event, index)}
               >
-                {key.label}
+                {key.alternate ? key.label.replace('/', '/\n') : key.label}
               </button>
             </li>
           )
