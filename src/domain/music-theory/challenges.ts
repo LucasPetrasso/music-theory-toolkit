@@ -119,7 +119,7 @@ export function createChallenge(kind: ChallengeKind, rng: Rng, options: Challeng
     const pool = INTERVAL_COUNTS
     return withChoices(
       rng,
-      `Quantos semitons existem entre ${formatNote(tonic)} e ${formatNote(other)}?`,
+      `Quantos semitons existem no intervalo ascendente de ${formatNote(tonic)} até ${formatNote(other)}?`,
       String(interval.semitones),
       `Subindo de ${formatNote(tonic)} até ${formatNote(other)} há ${interval.semitones} semitons: ${interval.definition.name}.`,
       pool,

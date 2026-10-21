@@ -14,6 +14,17 @@ describe('desafio', () => {
     expect(new Set(challenge.choices).size).toBe(4)
   })
 
+  it('informa que a pergunta de semitons considera o intervalo ascendente', () => {
+    const challenge = createChallenge('semitones', () => 0.2, {
+      tonic: noteFromLetter('A'),
+      other: noteFromLetter('F', 1),
+    })
+
+    expect(challenge.prompt).toContain('ascendente')
+    expect(challenge.answer).toBe('9')
+    expect(challenge.choices[challenge.correctIndex]).toBe('9')
+  })
+
   it('mantém a alternativa correta alinhada ao domínio com um gerador fixo', () => {
     const challenge = nextChallenge(() => 0)
     expect(challenge.choices[challenge.correctIndex]).toBe(challenge.answer)
